@@ -1,0 +1,76 @@
+[0]format=rgba,geq=r='r(X,Y)':\
+g='if(between(r(X,Y),1,5) * between(g(X,Y),30,40) *\
+between(b(X,Y),35,45),b(X,Y) * 0.05, g(X,Y))':\
+b='if(between(r(X,Y),1,5) * between(g(X,Y),30,40) *\
+between(b(X,Y),35,45),b(X,Y) * 0.05,b(X,Y))':a='255'
+
+
+
+[0] format=rgba, geq=r='0':g='0':b='0': \
+a='if(between(r(X,Y), 1, 5) * between(g(X,Y),30, 40) * \
+between(b(X,Y), 35, 45), 255, 0)' [alph]; \
+[0] format=rgba, geq='r=255:g=255:b=255:a=255' [e]; \
+[alph][e] overlay=0:0
+
+
+
+[0] format=rgba, geq= \
+r='if(between(r(X,Y), 1, 5) * between(g(X,Y),30, 40) * \
+between(b(X,Y), 35, 45), 0, 255)': \
+b='if(between(r(X,Y), 1, 5) * between(g(X,Y),30, 40) * \
+between(b(X,Y), 35, 45), 0, 255)': \
+g='if(between(r(X,Y), 1, 5) * between(g(X,Y),30, 40) * \
+between(b(X,Y), 35, 45), 0, 255)': \
+a=255, gblur=sigma=40:steps=1 [mask]; \
+[mask][0] blend=all_mode='multiply':all_opacity=1.0
+
+
+
+[0] format=rgba, geq= \
+r='if(between(r(X,Y), 1, 5) * between(g(X,Y),30, 40) * \
+between(b(X,Y), 35, 45), 0, 255)': \
+b='if(between(r(X,Y), 1, 5) * between(g(X,Y),30, 40) * \
+between(b(X,Y), 35, 45), 0, 255)': \
+g='if(between(r(X,Y), 1, 5) * between(g(X,Y),30, 40) * \
+between(b(X,Y), 35, 45), 0, 255)': \
+a=255, gblur=sigma=6:steps=1, colorlevels=rimax=0.7:gimax=0.7:bimax=0.7 [mask]; \
+[mask][0] blend=all_mode='multiply':all_opacity=1.0
+
+
+[0] format=rgba, geq= \
+r='if(between(r(X,Y), 0, 15) * between(g(X,Y),25, 45) * \
+between(b(X,Y), 30, 55), 0, 255)': \
+b='if(between(r(X,Y), 0, 15) * between(g(X,Y),25, 45) * \
+between(b(X,Y), 30, 55), 0, 255)': \
+g='if(between(r(X,Y), 0, 15) * between(g(X,Y),25, 45) * \
+between(b(X,Y), 30, 55), 0, 255)': \
+a=255, gblur=sigma=7:steps=1, colorlevels=romin=0.4:gomin=0.4:bomin=0.4:rimax=0.4:gimax=0.4:bimax=0.4 [mask]; \
+[mask][0] blend=all_mode='multiply':all_opacity=1.0
+
+
+
+
+
+[0] format=rgba, geq= \
+r='if(between(r(X,Y), 0, 15) * between(g(X,Y),25, 45) * \
+between(b(X,Y), 30, 55), 0, 255)': \
+b='if(between(r(X,Y), 0, 15) * between(g(X,Y),25, 45) * \
+between(b(X,Y), 30, 55), 0, 255)': \
+g='if(between(r(X,Y), 0, 15) * between(g(X,Y),25, 45) * \
+between(b(X,Y), 30, 55), 0, 255)': \
+a=255, gblur=sigma=7:steps=1, \ colorlevels=romin=0.6:gomin=0.6:bomin=0.6:rimax=0.2:gimax=0.2:bimax=0.2, \
+gblur=sigma=8:steps=1 [mask]; \
+[mask][0] blend=all_mode='multiply':all_opacity=1.0
+
+
+
+[0] format=rgba, geq= \
+r='if(between(r(X,Y), 0, 15) * between(g(X,Y),25, 45) * \
+between(b(X,Y), 30, 55), 0, 255)': \
+b='if(between(r(X,Y), 0, 15) * between(g(X,Y),25, 45) * \
+between(b(X,Y), 30, 55), 0, 255)': \
+g='if(between(r(X,Y), 0, 15) * between(g(X,Y),25, 45) * \
+between(b(X,Y), 30, 55), 0, 255)': \
+a=255, gblur=sigma=55:steps=1, \ colorlevels=romin=0.3:gomin=0.3:bomin=0.3:rimax=0.2:gimax=0.5:bimax=0.5, \
+gblur=sigma=8:steps=1 [mask]; \
+[mask][0] blend=all_mode='multiply':all_opacity=1.0
